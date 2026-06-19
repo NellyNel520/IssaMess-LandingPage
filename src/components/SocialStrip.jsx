@@ -33,7 +33,7 @@ function SocialStrip() {
         ))}
       </div>
 
-      <p className="social-handle">@ISSAMESSLLC</p>
+      <p className="social-handle">@IssaMessLLC</p>
     </section>
   )
 }
