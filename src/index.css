@@ -441,6 +441,35 @@ main {
   transition: color 280ms ease, background 280ms ease, transform 280ms ease, box-shadow 280ms ease, border-color 280ms ease, filter 280ms ease;
 }
 
+.hero-content .cta-section .btn-icon {
+  font-size: clamp(1.75rem, 2.4vw, 2.15rem);
+}
+
+.hero-content .cta-section .btn-copy {
+  display: grid;
+  gap: 0.12rem;
+  text-align: left;
+}
+
+.hero-content .cta-section .btn-main,
+.hero-content .cta-section .btn-subtext {
+  display: block;
+  line-height: 1.05;
+}
+
+.hero-content .cta-section .btn-main {
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.hero-content .cta-section .btn-subtext {
+  font-size: 0.78em;
+  font-weight: 650;
+  letter-spacing: 0.025em;
+  text-transform: none;
+  opacity: 0.84;
+}
+
 .hero-content .cta-section .btn-primary {
   border-color: rgba(255, 232, 154, 0.92);
   color: #080604;
