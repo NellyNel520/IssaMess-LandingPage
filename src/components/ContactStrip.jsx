@@ -2,7 +2,6 @@ import { useState } from 'react'
 import {
   FaCommentDots,
   FaEnvelope,
-  FaInstagram,
   FaPhoneAlt,
   FaRegCommentDots,
 } from 'react-icons/fa'
@@ -28,13 +27,6 @@ const contactItems = [
     href: 'sms:2016760616',
     Icon: FaCommentDots,
     MobileIcon: FaRegCommentDots,
-  },
-  {
-    label: 'Follow Us',
-    value: 'Stay connected!',
-    href: 'https://instagram.com/issamessllc',
-    Icon: FaInstagram,
-    MobileIcon: FaInstagram,
   },
 ]
 
