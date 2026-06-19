@@ -361,6 +361,17 @@ main {
     font-size: clamp(3.4rem, 4vw, 4.65rem);
     white-space: nowrap;
   }
+
+  .brand-mark {
+    width: 216px;
+    height: 80px;
+  }
+
+  .brand-mark img {
+    width: 216px;
+    max-width: 216px;
+    height: auto;
+  }
 }
 
 .btn {
@@ -1029,13 +1040,13 @@ main {
   }
 
   .brand-mark {
-    max-width: 300px;
+    max-width: 216px;
     overflow: visible;
   }
 
   .brand-mark img {
-    width: 300px;
-    max-width: 300px;
+    width: 216px;
+    max-width: 216px;
     height: auto;
     transform: translateY(8px);
   }
