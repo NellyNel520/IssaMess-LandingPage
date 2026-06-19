@@ -36,6 +36,11 @@ body {
   margin: 0;
 }
 
+body.modal-open {
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
 button,
 input,
 textarea {
@@ -992,6 +997,7 @@ main {
   padding: 1rem;
   background: rgba(0, 0, 0, 0.74);
   backdrop-filter: blur(10px);
+  overscroll-behavior: contain;
 }
 
 .modal-panel {
@@ -999,6 +1005,8 @@ main {
   width: min(100%, 520px);
   max-height: calc(100svh - 2rem);
   overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
   padding: 1.35rem;
   border: 1px solid var(--color-line);
   border-radius: var(--radius-md);
