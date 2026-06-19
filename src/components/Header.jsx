@@ -101,7 +101,7 @@ function Header({ onInquiryClick }) {
           ></button>
 
           <div className="mobile-menu" aria-label="Mobile menu">
-            <p className="mobile-menu-heading">Stay Connected</p>
+            <p className="mobile-menu-heading">Follow Us</p>
             <div className="mobile-menu-group">
               {socialLinks.map(({ href, Icon, label }) => (
                 <a className="mobile-menu-row" key={label} href={href} target="_blank" rel="noreferrer">
@@ -114,7 +114,7 @@ function Header({ onInquiryClick }) {
               ))}
             </div>
 
-            <p className="mobile-menu-heading">Get In Touch</p>
+            <p className="mobile-menu-heading">Contact Us</p>
             <div className="mobile-menu-group">
               <a className="mobile-menu-row mobile-menu-contact" href="tel:2016760616">
                 <span className="mobile-menu-icon">
@@ -132,8 +132,8 @@ function Header({ onInquiryClick }) {
                   <FaCommentDots aria-hidden="true" focusable="false" />
                 </span>
                 <span>
-                  <span className="mobile-menu-kicker">Message Us</span>
-                  <span className="mobile-menu-primary">Request Information</span>
+                  <span className="mobile-menu-kicker">Request Info</span>
+                  <span className="mobile-menu-primary">Submit Service Request</span>
                 </span>
                 <FaChevronRight className="mobile-menu-chevron" aria-hidden="true" focusable="false" />
               </button>
