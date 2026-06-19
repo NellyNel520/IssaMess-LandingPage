@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import Header from './components/Header'
 import Hero from './components/Hero'
-import CTAButtons from './components/CTAButtons'
 import ContactStrip from './components/ContactStrip'
 import SocialStrip from './components/SocialStrip'
 import Footer from './components/Footer'
@@ -20,8 +19,7 @@ function App() {
       <Header onInquiryClick={openInquiry} />
 
       <main>
-        <Hero />
-        <CTAButtons
+        <Hero
           onNewsletterClick={openNewsletter}
           onInquiryClick={openInquiry}
         />
