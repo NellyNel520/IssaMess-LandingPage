@@ -22,8 +22,7 @@ const socialItems = [
 function SocialStrip() {
   return (
     <section className="social-section" aria-labelledby="social-title">
-      <p className="section-kicker">Follow the refresh</p>
-      <h2 id="social-title">@ISSAMESSLLC</h2>
+      <h2 id="social-title">Follow Us On Social Media</h2>
 
       <div className="social-grid">
         {socialItems.map(({ href, Icon, label }) => (
@@ -33,6 +32,8 @@ function SocialStrip() {
           </a>
         ))}
       </div>
+
+      <p className="social-handle">@ISSAMESSLLC</p>
     </section>
   )
 }
