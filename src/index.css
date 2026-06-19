@@ -427,26 +427,64 @@ main {
   box-shadow:
     0 16px 36px rgba(0, 0, 0, 0.34),
     0 0 22px rgba(244, 207, 122, 0.08);
-  transition: transform 210ms ease, box-shadow 210ms ease, border-color 210ms ease, filter 210ms ease;
+  transition: color 280ms ease, background 280ms ease, transform 280ms ease, box-shadow 280ms ease, border-color 280ms ease, filter 280ms ease;
 }
 
 .hero-content .cta-section .btn-primary {
-  border-color: rgba(255, 230, 166, 0.92);
-  background: linear-gradient(135deg, #fff0ad 0%, #d7b56d 48%, #a76b1d 100%);
+  border-color: rgba(255, 232, 154, 0.92);
+  color: #080604;
+  background: linear-gradient(135deg, #ffe89a 0%, #f7cb47 46%, #d99d24 100%);
 }
 
 .hero-content .cta-section .btn-secondary {
-  border-color: rgba(215, 181, 109, 0.48);
-  background: linear-gradient(135deg, #a31621 0%, #6f0d15 56%, #250407 100%);
+  border-color: rgba(255, 232, 154, 0.92);
+  color: #080604;
+  background: linear-gradient(135deg, #ffe89a 0%, #f7cb47 46%, #d99d24 100%);
 }
 
-.hero-content .cta-section .btn:hover,
-.hero-content .cta-section .btn:focus-visible {
+.hero-content .cta-section .btn-primary:hover,
+.hero-content .cta-section .btn-primary:focus-visible {
+  border-color: #ffe89a;
+  color: #ffffff;
+  background: linear-gradient(135deg, #fff0b8 0%, #f7cb47 42%, #e7b63a 100%);
   transform: translateY(-3px);
   box-shadow:
     0 18px 40px rgba(0, 0, 0, 0.38),
-    0 0 24px rgba(244, 207, 122, 0.18);
+    0 0 28px rgba(247, 203, 71, 0.34);
   filter: saturate(1.08);
+}
+
+.hero-content .cta-section .btn-primary:hover .btn-icon,
+.hero-content .cta-section .btn-primary:focus-visible .btn-icon {
+  color: #ffffff;
+  filter: drop-shadow(0 0 7px rgba(255, 232, 154, 0.62));
+}
+
+.hero-content .cta-section .btn-secondary:hover,
+.hero-content .cta-section .btn-secondary:focus-visible {
+  border-color: rgba(247, 203, 71, 0.72);
+  color: var(--color-cream);
+  background: linear-gradient(135deg, #a31621 0%, #6f0d15 58%, #250407 100%);
+  transform: translateY(-3px);
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.38),
+    0 0 28px rgba(163, 22, 33, 0.34);
+  filter: saturate(1.08);
+}
+
+.hero-content .cta-section .btn-secondary:hover .btn-icon,
+.hero-content .cta-section .btn-secondary:focus-visible .btn-icon {
+  color: var(--color-cream);
+}
+
+.hero-content .cta-section .btn:focus-visible {
+  border-color: #ffe89a;
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.38),
+    0 0 0 3px rgba(247, 203, 71, 0.26),
+    0 0 30px rgba(247, 203, 71, 0.26);
+  outline: none;
+  transform: translateY(-3px);
 }
 
 .hero-content .cta-section .btn:active {
@@ -522,31 +560,34 @@ main {
   min-height: 54px;
   align-items: center;
   justify-content: center;
+  gap: 0.62rem;
   padding: 0.9rem 1.25rem;
   border-radius: 999px;
   font-weight: 800;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+  transition: color 280ms ease, background 280ms ease, transform 280ms ease, box-shadow 280ms ease, border-color 280ms ease, filter 280ms ease;
 }
 
-.btn:hover,
-.btn:focus-visible {
-  transform: translateY(-2px);
+.btn-icon {
+  flex: 0 0 auto;
+  color: currentColor;
+  font-size: 1.36em;
+  transition: color 280ms ease, filter 280ms ease;
 }
 
 .btn-primary {
-  border: 1px solid var(--color-gold);
-  color: #120b04;
-  background: linear-gradient(135deg, var(--color-gold-soft), var(--color-gold));
-  box-shadow: 0 16px 34px rgba(215, 181, 109, 0.18);
+  border: 1px solid rgba(255, 232, 154, 0.92);
+  color: #080604;
+  background: linear-gradient(135deg, #ffe89a 0%, #f7cb47 46%, #d99d24 100%);
+  box-shadow: 0 16px 34px rgba(247, 203, 71, 0.18);
 }
 
 .btn-secondary {
-  border: 1px solid rgba(255, 249, 239, 0.24);
-  color: var(--color-cream);
-  background: linear-gradient(135deg, var(--color-red), var(--color-red-deep));
-  box-shadow: 0 16px 34px rgba(163, 22, 33, 0.2);
+  border: 1px solid rgba(255, 232, 154, 0.92);
+  color: #080604;
+  background: linear-gradient(135deg, #ffe89a 0%, #f7cb47 46%, #d99d24 100%);
+  box-shadow: 0 16px 34px rgba(247, 203, 71, 0.18);
 }
 
 .contact-strip {
