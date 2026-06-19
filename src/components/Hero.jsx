@@ -3,25 +3,27 @@ import CTAButtons from './CTAButtons'
 
 function Hero({ onNewsletterClick, onInquiryClick }) {
   return (
-    <section
-      className="hero-section"
-      aria-labelledby="hero-title"
-      style={{ '--hero-bg-image': `url(${heroBg})` }}
-    >
+    <section className="hero-section" aria-labelledby="hero-title">
       <div className="hero-visual" aria-hidden="true">
-        <div className="hero-bg"></div>
+        <img className="hero-bg" src={heroBg} alt="" />
+      </div>
+
+      <div className="hero-title-group">
+        <p className="eyebrow">The Full Issa-Mess Experience</p>
+        <h1 id="hero-title">COMING SOON</h1>
       </div>
 
       <div className="hero-content">
-        <p className="eyebrow">The Full Issa-Mess Experience</p>
-        <h1 id="hero-title">COMING SOON</h1>
         <div className="hero-title-accent" aria-hidden="true">
           <span></span>
         </div>
         <p className="hero-copy">
-          Our website is currently being refreshed to better serve you. In the
-          meantime, join our list to be the first to know when we launch,
-          consultations open, and exclusive updates go live.
+          The Issa-Mess you&apos;ve trusted is getting a fresh new look. We&apos;re
+          putting the finishing touches on the next chapter of our business,
+          with a refreshed website, expanded offerings, and an even better
+          client experience. Join our list to be the first to know when we
+          launch, consultation bookings open, and exclusive offers, promotions,
+          and more become available.
         </p>
         <CTAButtons
           onNewsletterClick={onNewsletterClick}
