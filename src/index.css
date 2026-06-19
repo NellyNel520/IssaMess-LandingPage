@@ -248,10 +248,12 @@ main {
 .hero-section {
   position: relative;
   display: grid;
-  min-height: clamp(520px, 72svh, 740px);
-  place-items: center;
-  padding: 3rem 0 2.25rem;
+  width: 100vw;
+  height: clamp(620px, 52vw, 780px);
+  margin-left: calc(50% - 50vw);
+  padding: 0;
   text-align: center;
+  overflow: hidden;
 }
 
 .hero-bg {
@@ -260,38 +262,26 @@ main {
   border-top: 1px solid var(--color-line);
   border-bottom: 1px solid var(--color-line);
   background:
-    linear-gradient(rgba(5, 5, 5, 0.58), rgba(5, 5, 5, 0.84)),
+    linear-gradient(
+      to bottom,
+      rgba(5, 5, 5, 0.02) 0%,
+      rgba(5, 5, 5, 0.04) 42%,
+      rgba(5, 5, 5, 0.42) 68%,
+      rgba(5, 5, 5, 0.92) 100%
+    ),
     var(--hero-bg-image);
   background-size: cover;
-  background-position: center;
-  mask-image: linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%);
+  background-position: center center;
 }
 
 .hero-content {
-  position: relative;
-  width: min(100%, 760px);
-  padding: 0 0.5rem;
-}
-
-.hero-logo-wrap {
-  display: inline-flex;
-  width: min(58vw, 220px);
-  min-height: 148px;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1.5rem;
-  border: 1px solid var(--color-line);
-  border-radius: 999px;
-  background:
-    linear-gradient(145deg, rgba(255, 249, 239, 0.08), rgba(163, 22, 33, 0.14)),
-    rgba(5, 5, 5, 0.62);
-  box-shadow: 0 0 0 8px rgba(215, 181, 109, 0.04), var(--shadow-lg);
-}
-
-.hero-logo {
-  width: 74%;
-  min-height: 84px;
-  object-fit: contain;
+  position: absolute;
+  bottom: clamp(2rem, 3.2vw, 3.45rem);
+  left: 50%;
+  z-index: 1;
+  width: min(96vw, 880px);
+  padding: 0 1rem;
+  transform: translateX(-50%);
 }
 
 .eyebrow,
@@ -306,21 +296,22 @@ main {
 }
 
 .hero-section h1 {
-  margin: 0.55rem 0 0;
+  margin: 0.24rem 0 0;
   color: var(--color-cream);
   font-family: var(--font-display);
-  font-size: clamp(3.4rem, 15vw, 8.4rem);
+  font-size: clamp(2.4rem, 4.8vw, 5.1rem);
   font-weight: 700;
-  line-height: 0.88;
+  letter-spacing: 0.08em;
+  line-height: 0.95;
   text-shadow: 0 8px 34px rgba(0, 0, 0, 0.62);
 }
 
 .hero-copy {
-  width: min(100%, 690px);
-  margin: 1.35rem auto 0;
+  width: min(100%, 580px);
+  margin: 0.58rem auto 0;
   color: var(--color-muted);
-  font-size: clamp(1rem, 2.7vw, 1.17rem);
-  line-height: 1.72;
+  font-size: clamp(0.88rem, 1.45vw, 0.98rem);
+  line-height: 1.5;
 }
 
 .cta-section {
@@ -329,6 +320,47 @@ main {
   gap: 0.9rem;
   width: min(100%, 620px);
   margin: -0.65rem auto 2rem;
+}
+
+.hero-section + .cta-section {
+  position: relative;
+  z-index: 2;
+  margin-top: clamp(-2.25rem, -3vw, -1.2rem);
+}
+
+@media (min-width: 769px) {
+  .hero-section h1 {
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-bg {
+    background-position: center 28%;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1023px) {
+  .hero-bg {
+    background-position: center 35%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-bg {
+    background-position: center center;
+  }
+}
+
+@media (min-width: 1200px) {
+  .hero-content {
+    bottom: clamp(0.25rem, 0.75vw, 1rem);
+  }
+
+  .hero-section h1 {
+    font-size: clamp(3.4rem, 4vw, 4.65rem);
+    white-space: nowrap;
+  }
 }
 
 .btn {
@@ -947,14 +979,47 @@ main {
   }
 }
 
-@media (min-width: 1024px) {
-  .hero-section {
-    padding-top: 4.5rem;
+@media (max-width: 390px) {
+  .site-header {
+    min-height: 90px;
+    padding-left: 8px;
+    padding-right: 18px;
   }
 
-  .hero-logo-wrap {
-    width: 240px;
-    min-height: 166px;
+  .brand-mark {
+    width: clamp(136px, 43vw, 170px);
+    height: 88px;
+  }
+
+  .brand-mark img {
+    transform: translateY(3px);
+  }
+
+  .mobile-menu-toggle svg {
+    width: 31px;
+    height: 31px;
+  }
+
+  .hero-content {
+    bottom: 1.15rem;
+    width: min(96vw, 340px);
+  }
+
+  .hero-section h1 {
+    font-size: clamp(2rem, 15vw, 3.1rem);
+    letter-spacing: 0.05em;
+    white-space: normal;
+  }
+
+  .hero-copy {
+    width: min(100%, 320px);
+    margin-top: 0.48rem;
+    font-size: 0.84rem;
+    line-height: 1.42;
+  }
+
+  .hero-section + .cta-section {
+    margin-top: -1rem;
   }
 }
 
