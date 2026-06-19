@@ -10,7 +10,7 @@ function ModalManager({ activeModal, onClose, onConfirm }) {
   return (
     <div className="modal-backdrop" role="presentation" onMouseDown={onClose}>
       <div
-        className="modal-panel"
+        className={`modal-panel modal-panel-${activeModal}`}
         role="dialog"
         aria-modal="true"
         onMouseDown={(event) => event.stopPropagation()}

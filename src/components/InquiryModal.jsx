@@ -1,3 +1,5 @@
+import { FaEnvelope, FaLock } from 'react-icons/fa'
+
 function InquiryModal({ onSubmitSuccess }) {
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -5,12 +7,14 @@ function InquiryModal({ onSubmitSuccess }) {
   }
 
   return (
-    <form className="modal-form" onSubmit={handleSubmit}>
-      <p className="modal-kicker">Service Inquiry</p>
+    <form className="modal-form inquiry-form" onSubmit={handleSubmit}>
+      <span className="inquiry-icon" aria-hidden="true">
+        <FaEnvelope />
+      </span>
       <h2>Need Our Services?</h2>
       <p className="modal-copy">
-        Tell us a little about what you need cleaned, and the Issa-Mess team
-        will follow up when inquiries open.
+        Tell us a little about your space, timing, and service needs. The
+        Issa-Mess team will follow up when inquiries open.
       </p>
 
       <label htmlFor="inquiry-name">Name</label>
@@ -43,13 +47,16 @@ function InquiryModal({ onSubmitSuccess }) {
         required
       ></textarea>
 
-      <button className="btn btn-primary" type="submit">
-        Submit Inquiry
+      <button className="btn btn-primary inquiry-submit" type="submit">
+        SUBMIT INQUIRY
       </button>
 
       <p className="privacy-note">
-        Your information stays private and will only be used to respond to your
-        service inquiry.
+        <FaLock aria-hidden="true" />
+        <span>
+          Your information stays private and will only be used to respond to
+          your service inquiry.
+        </span>
       </p>
     </form>
   )

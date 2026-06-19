@@ -1,3 +1,5 @@
+import { FaRegBell, FaLock } from 'react-icons/fa'
+
 function NewsletterModal({ onSubmitSuccess }) {
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -5,30 +7,37 @@ function NewsletterModal({ onSubmitSuccess }) {
   }
 
   return (
-    <form className="modal-form" onSubmit={handleSubmit}>
-      <p className="modal-kicker">Launch Updates</p>
-      <h2>Be The First To Know</h2>
+    <form className="modal-form newsletter-form" onSubmit={handleSubmit}>
+      <span className="newsletter-icon" aria-hidden="true">
+        <FaRegBell />
+      </span>
+      <h2>
+        Stay <span>In The Loop</span>
+      </h2>
       <p className="modal-copy">
-        Join the Issa-Mess list for launch news, consultation openings, and
-        exclusive service updates.
+        Be the first to know about our official website launch, new services,
+        and exclusive updates.
       </p>
 
-      <label htmlFor="newsletter-email">Email address</label>
+      <label className="sr-only" htmlFor="newsletter-email">Email address</label>
       <input
         id="newsletter-email"
         name="email"
         type="email"
-        placeholder="you@example.com"
+        placeholder="Email Address"
         required
       />
 
-      <button className="btn btn-primary" type="submit">
-        Count Me In
+      <button className="btn btn-primary newsletter-submit" type="submit">
+        COUNT ME IN
       </button>
 
       <p className="privacy-note">
-        Your information stays private and will only be used for Issa-Mess
-        Cleaning Services updates.
+        <FaLock aria-hidden="true" />
+        <span>
+          Your information stays private and will only be used for Issa-Mess
+          updates.
+        </span>
       </p>
     </form>
   )
