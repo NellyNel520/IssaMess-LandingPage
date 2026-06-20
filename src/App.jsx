@@ -8,11 +8,18 @@ import ModalManager from './components/ModalManager'
 
 function App() {
   const [activeModal, setActiveModal] = useState(null)
+  const [successType, setSuccessType] = useState(null)
 
   const openNewsletter = () => setActiveModal('newsletter')
   const openInquiry = () => setActiveModal('inquiry')
-  const showConfirmation = () => setActiveModal('confirmation')
-  const closeModal = () => setActiveModal(null)
+  const showConfirmation = (type) => {
+    setSuccessType(type)
+    setActiveModal('confirmation')
+  }
+  const closeModal = () => {
+    setActiveModal(null)
+    setSuccessType(null)
+  }
 
   return (
     <div className="app-shell">
@@ -31,6 +38,7 @@ function App() {
 
       <ModalManager
         activeModal={activeModal}
+        successType={successType}
         onClose={closeModal}
         onConfirm={showConfirmation}
       />

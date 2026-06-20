@@ -3,7 +3,7 @@ import NewsletterModal from './NewsletterModal'
 import InquiryModal from './InquiryModal'
 import ConfirmationModal from './ConfirmationModal'
 
-function ModalManager({ activeModal, onClose, onConfirm }) {
+function ModalManager({ activeModal, successType, onClose, onConfirm }) {
   useEffect(() => {
     if (!activeModal) {
       return undefined
@@ -57,12 +57,16 @@ function ModalManager({ activeModal, onClose, onConfirm }) {
         </button>
 
         {activeModal === 'newsletter' && (
-          <NewsletterModal onSubmitSuccess={onConfirm} />
+          <NewsletterModal onSubmitSuccess={() => onConfirm('newsletter')} />
         )}
 
-        {activeModal === 'inquiry' && <InquiryModal onSubmitSuccess={onConfirm} />}
+        {activeModal === 'inquiry' && (
+          <InquiryModal onSubmitSuccess={() => onConfirm('inquiry')} />
+        )}
 
-        {activeModal === 'confirmation' && <ConfirmationModal onClose={onClose} />}
+        {activeModal === 'confirmation' && (
+          <ConfirmationModal successType={successType} onClose={onClose} />
+        )}
       </div>
     </div>
   )

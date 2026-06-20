@@ -1,9 +1,40 @@
+import { useState } from 'react'
 import { FaEnvelope, FaLock } from 'react-icons/fa'
 
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xjgdnlqa'
+
 function InquiryModal({ onSubmitSuccess }) {
-  const handleSubmit = (event) => {
+  const [status, setStatus] = useState('idle')
+  const [errorMessage, setErrorMessage] = useState('')
+
+  const handleSubmit = async (event) => {
     event.preventDefault()
-    onSubmitSuccess()
+
+    const form = event.currentTarget
+    const formData = new FormData(form)
+
+    setStatus('submitting')
+    setErrorMessage('')
+
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          Accept: 'application/json',
+        },
+      })
+
+      if (!response.ok) {
+        throw new Error('Form submission failed')
+      }
+
+      form.reset()
+      onSubmitSuccess()
+    } catch {
+      setStatus('idle')
+      setErrorMessage('Something went wrong. Please try again.')
+    }
   }
 
   return (
@@ -65,9 +96,19 @@ function InquiryModal({ onSubmitSuccess }) {
         required
       ></textarea>
 
-      <button className="btn btn-primary inquiry-submit" type="submit">
-        SUBMIT INQUIRY
+      <button
+        className="btn btn-primary inquiry-submit"
+        type="submit"
+        disabled={status === 'submitting'}
+      >
+        {status === 'submitting' ? 'SUBMITTING...' : 'SUBMIT INQUIRY'}
       </button>
+
+      {errorMessage && (
+        <p className="modal-error" role="alert">
+          {errorMessage}
+        </p>
+      )}
 
       <p className="privacy-note">
         <FaLock aria-hidden="true" />
