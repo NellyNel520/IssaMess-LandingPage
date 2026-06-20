@@ -43,6 +43,7 @@ body.modal-open {
 
 button,
 input,
+select,
 textarea {
   font: inherit;
 }
@@ -1169,6 +1170,7 @@ main {
 }
 
 .modal-form input,
+.modal-form select,
 .modal-form textarea {
   width: 100%;
   border: 1px solid rgba(255, 249, 239, 0.2);
@@ -1189,6 +1191,7 @@ main {
 }
 
 .inquiry-form input,
+.inquiry-form select,
 .inquiry-form textarea {
   border-color: rgba(247, 203, 71, 0.28);
   border-radius: 8px;
@@ -1197,6 +1200,14 @@ main {
 
 .inquiry-form input::placeholder,
 .inquiry-form textarea::placeholder {
+  color: rgba(255, 249, 239, 0.42);
+}
+
+.inquiry-form select {
+  color: var(--color-cream);
+}
+
+.inquiry-form select:invalid {
   color: rgba(255, 249, 239, 0.42);
 }
 
@@ -1225,7 +1236,21 @@ main {
   outline: none;
 }
 
-.modal-form input {
+.newsletter-submit:disabled {
+  cursor: wait;
+  opacity: 0.72;
+  transform: none;
+}
+
+.modal-error {
+  margin: -0.2rem 0 0;
+  color: #ffe89a;
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
+.modal-form input,
+.modal-form select {
   min-height: 48px;
   padding: 0 0.9rem;
 }
@@ -1237,6 +1262,7 @@ main {
 }
 
 .modal-form input:focus,
+.modal-form select:focus,
 .modal-form textarea:focus {
   border-color: var(--color-gold);
   outline: none;

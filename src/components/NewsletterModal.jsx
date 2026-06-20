@@ -1,9 +1,42 @@
+import { useState } from 'react'
 import { FaRegBell, FaLock } from 'react-icons/fa'
 
+const MAILERLITE_SUBSCRIBE_URL =
+  'https://assets.mailerlite.com/jsonp/2458500/forms/OaF0Fb/subscribe'
+
 function NewsletterModal({ onSubmitSuccess }) {
-  const handleSubmit = (event) => {
+  const [status, setStatus] = useState('idle')
+  const [errorMessage, setErrorMessage] = useState('')
+
+  const handleSubmit = async (event) => {
     event.preventDefault()
-    onSubmitSuccess()
+
+    const formData = new FormData(event.currentTarget)
+    const email = formData.get('email')
+    const payload = new URLSearchParams()
+
+    payload.append('fields[email]', email)
+    payload.append('ml-submit', '1')
+    payload.append('anticsrf', 'true')
+
+    setStatus('submitting')
+    setErrorMessage('')
+
+    try {
+      await fetch(MAILERLITE_SUBSCRIBE_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: payload,
+      })
+
+      onSubmitSuccess()
+    } catch {
+      setStatus('idle')
+      setErrorMessage('Something went wrong. Please try again.')
+    }
   }
 
   return (
@@ -28,9 +61,19 @@ function NewsletterModal({ onSubmitSuccess }) {
         required
       />
 
-      <button className="btn btn-primary newsletter-submit" type="submit">
-        COUNT ME IN
+      <button
+        className="btn btn-primary newsletter-submit"
+        type="submit"
+        disabled={status === 'submitting'}
+      >
+        {status === 'submitting' ? 'SENDING...' : 'COUNT ME IN'}
       </button>
+
+      {errorMessage && (
+        <p className="modal-error" role="alert">
+          {errorMessage}
+        </p>
+      )}
 
       <p className="privacy-note">
         <FaLock aria-hidden="true" />

@@ -13,12 +13,17 @@ function InquiryModal({ onSubmitSuccess }) {
       </span>
       <h2>Need Our Services?</h2>
       <p className="modal-copy">
-        Tell us a little about your space, timing, and service needs. The
-        Issa-Mess team will follow up when inquiries open.
+        The Issa-Mess team will follow up when inquiries open.
       </p>
 
-      <label htmlFor="inquiry-name">Name</label>
-      <input id="inquiry-name" name="name" type="text" placeholder="Your name" required />
+      <label htmlFor="inquiry-name">First &amp; Last Name</label>
+      <input
+        id="inquiry-name"
+        name="firstLastName"
+        type="text"
+        placeholder="Your first and last name"
+        required
+      />
 
       <label htmlFor="inquiry-phone">Phone number</label>
       <input
@@ -35,14 +40,27 @@ function InquiryModal({ onSubmitSuccess }) {
         name="email"
         type="email"
         placeholder="you@example.com"
-        required
       />
+
+      <label htmlFor="inquiry-property">Property Type / Size</label>
+      <select id="inquiry-property" name="propertyTypeSize" defaultValue="" required>
+        <option value="" disabled>
+          Select property type / size
+        </option>
+        <option value="Studio / Efficiency">Studio / Efficiency</option>
+        <option value="1 Bedroom">1 Bedroom</option>
+        <option value="2 Bedroom">2 Bedroom</option>
+        <option value="3 Bedroom">3 Bedroom</option>
+        <option value="4+ Bedroom">4+ Bedroom</option>
+        <option value="Commercial Space">Commercial Space</option>
+        <option value="Not Sure">Not Sure</option>
+      </select>
 
       <label htmlFor="inquiry-message">Message</label>
       <textarea
         id="inquiry-message"
         name="message"
-        placeholder="Tell us about your space, timing, and service needs."
+        placeholder="Please provide any additional details about your cleaning needs, pets, frequency of service, or anything else you'd like us to know."
         rows="5"
         required
       ></textarea>
