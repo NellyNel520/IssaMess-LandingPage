@@ -55,6 +55,9 @@ function FacebookIcon(props) {
   )
 }
 
+const FACEBOOK_URL =
+  'https://www.facebook.com/people/Issa-Messllc/61590894630991/?mibextid=wwXIfr&rdid=ksXKbykbrObu47Kv&share_url=https%253A%252F%252Fwww.facebook.com%252Fshare%252F1UMw2EdgZn%252F%253Fmibextid%253DwwXIfr'
+
 const socialItems = [
   {
     label: 'Instagram',
@@ -68,7 +71,7 @@ const socialItems = [
   },
   {
     label: 'Facebook',
-    href: 'https://facebook.com/issamessllc',
+    href: FACEBOOK_URL,
     Icon: FacebookIcon,
   },
 ]
@@ -80,7 +83,7 @@ function SocialStrip() {
 
       <div className="social-grid">
         {socialItems.map(({ href, Icon, label }) => (
-          <a href={href} target="_blank" rel="noreferrer" key={label}>
+          <a href={href} target="_blank" rel="noopener noreferrer" key={label}>
             <Icon className="icon" aria-hidden="true" focusable="false" />
             <span>{label}</span>
           </a>

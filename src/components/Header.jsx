@@ -11,6 +11,9 @@ import { FaTiktok } from 'react-icons/fa6'
 import { HiX } from 'react-icons/hi'
 import logo from '../assets/logo.png'
 
+const FACEBOOK_URL =
+  'https://www.facebook.com/people/Issa-Messllc/61590894630991/?mibextid=wwXIfr&rdid=ksXKbykbrObu47Kv&share_url=https%253A%252F%252Fwww.facebook.com%252Fshare%252F1UMw2EdgZn%252F%253Fmibextid%253DwwXIfr'
+
 const socialLinks = [
   {
     label: 'Instagram',
@@ -24,7 +27,7 @@ const socialLinks = [
   },
   {
     label: 'Facebook',
-    href: 'https://facebook.com/issamessllc',
+    href: FACEBOOK_URL,
     Icon: FaFacebookF,
   },
 ]
@@ -59,7 +62,7 @@ function Header({ onInquiryClick }) {
       <div className="header-actions">
         <nav className="header-socials" aria-label="Social links">
           {socialLinks.map(({ href, Icon, label }) => (
-            <a key={label} href={href} target="_blank" rel="noreferrer">
+            <a key={label} href={href} target="_blank" rel="noopener noreferrer">
               <Icon className="icon" aria-hidden="true" focusable="false" />
               <span className="sr-only">{label}</span>
             </a>
@@ -104,7 +107,7 @@ function Header({ onInquiryClick }) {
             <p className="mobile-menu-heading">Follow Us</p>
             <div className="mobile-menu-group">
               {socialLinks.map(({ href, Icon, label }) => (
-                <a className="mobile-menu-row" key={label} href={href} target="_blank" rel="noreferrer">
+                <a className="mobile-menu-row" key={label} href={href} target="_blank" rel="noopener noreferrer">
                   <span className="mobile-menu-icon">
                     <Icon aria-hidden="true" focusable="false" />
                   </span>

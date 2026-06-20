@@ -168,33 +168,26 @@ img {
 
 .header-socials a {
   display: inline-flex;
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(247, 203, 71, 0.9);
-  border-radius: 999px;
-  background: transparent;
-  color: var(--color-cream);
+  color: #fff;
   transition:
     transform 180ms ease,
-    border-color 180ms ease,
-    background 180ms ease,
-    box-shadow 180ms ease;
+    color 180ms ease;
 }
 
 .header-socials a:hover,
 .header-socials a:focus-visible {
   transform: translateY(-2px);
-  border-color: #f7cb47;
-  background: rgba(163, 22, 33, 0.16);
-  box-shadow: 0 0 14px rgba(163, 22, 33, 0.22);
+  color: #e3aa27;
 }
 
 .header-socials .icon {
   flex: 0 0 auto;
-  width: 21px;
-  height: 21px;
+  width: 27px;
+  height: 27px;
   color: currentColor;
 }
 
@@ -1442,6 +1435,33 @@ main {
 }
 
 @media (max-width: 768px) {
+  :root {
+    --mobile-header-height: 98px;
+  }
+
+  .modal-backdrop {
+    top: var(--mobile-header-height);
+    bottom: 0;
+    min-height: 0;
+    padding: 0.75rem 1rem 1rem;
+    align-items: start;
+    overflow: hidden;
+  }
+
+  .modal-panel-inquiry {
+    display: flex;
+    max-height: calc(100dvh - var(--mobile-header-height) - 1.75rem);
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .modal-panel-inquiry .inquiry-form {
+    overflow-y: auto;
+    padding-bottom: 1.25rem;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+
   .site-header {
     position: relative;
     z-index: 70;
@@ -1735,6 +1755,10 @@ main {
 }
 
 @media (max-width: 390px) {
+  :root {
+    --mobile-header-height: 90px;
+  }
+
   .site-header {
     min-height: 90px;
     padding-left: 8px;
