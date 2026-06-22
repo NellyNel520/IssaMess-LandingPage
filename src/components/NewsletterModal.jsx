@@ -46,18 +46,13 @@ function NewsletterModal({ onSubmitSuccess }) {
 
     const form = event.currentTarget
 
-    console.log('[Newsletter] newsletter submit started')
-
     const trimmedEmail = email.trim()
 
     if (!trimmedEmail || !EMAIL_PATTERN.test(trimmedEmail)) {
-      console.log('[Newsletter] validation failed')
       setStatus('idle')
       setErrorMessage('Please enter a valid email address.')
       return
     }
-
-    console.log('[Newsletter] validation passed')
 
     setStatus('submitting')
     setErrorMessage('')
@@ -90,16 +85,13 @@ function NewsletterModal({ onSubmitSuccess }) {
 
       mailerLiteRequest.catch(() => {})
 
-      console.log('[Newsletter] MailerLite dispatch completed')
       form.reset()
       embeddedForm.reset()
       setEmail('')
       setStatus('idle')
       setErrorMessage('')
-      console.log('[Newsletter] opening newsletter success modal')
       onSubmitSuccess()
-    } catch (error) {
-      console.error('[Newsletter] dispatch failed', error)
+    } catch {
       setStatus('idle')
       setErrorMessage('Something went wrong. Please try again.')
     }
